@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://smartspend-j02p.onrender.com',
+  baseURL: 'https://smartspend-j02p.onrender.com/api',
 });
 
 instance.interceptors.request.use((config) => {
