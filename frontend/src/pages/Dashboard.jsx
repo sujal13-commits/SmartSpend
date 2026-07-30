@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import api from '../api/axios';
 import ExpenseForm from '../components/ExpenseForm';
 import ExpenseList from '../components/ExpenseList';
+import CategoryPieChart from '../components/CategoryPieChart';
 
 function Dashboard() {
   const { user, logout } = useAuth();
@@ -51,6 +52,8 @@ function Dashboard() {
         <p className="text-gray-500 text-sm">Total Spend</p>
         <p className="text-3xl font-bold text-gray-800">₹{total}</p>
       </div>
+
+      <CategoryPieChart expenses={expenses} />
 
       <ExpenseForm onExpenseAdded={handleExpenseAdded} />
 
