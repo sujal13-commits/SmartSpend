@@ -32,6 +32,12 @@ function Dashboard() {
     setExpenses(expenses.filter((exp) => exp._id !== id));
   };
 
+  const handleExpenseUpdated = (updatedExpense) => {
+  setExpenses(
+    expenses.map((exp) => (exp._id === updatedExpense._id ? updatedExpense : exp))
+  );
+};
+
   const total = expenses.reduce((sum, exp) => sum + exp.amount, 0);
 
   return (
@@ -60,7 +66,11 @@ function Dashboard() {
       {loading ? (
         <p className="text-center text-gray-500">Loading expenses...</p>
       ) : (
-        <ExpenseList expenses={expenses} onExpenseDeleted={handleExpenseDeleted} />
+        <ExpenseList
+  expenses={expenses}
+  onExpenseDeleted={handleExpenseDeleted}
+  onExpenseUpdated={handleExpenseUpdated}
+/>
       )}
     </div>
   );
