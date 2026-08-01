@@ -55,6 +55,12 @@ function Login() {
           className="w-full mb-6 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
 
+        <p className="text-right text-sm mb-4">
+  <Link to="/forgot-password" className="text-blue-600 hover:underline">
+    Forgot Password?
+  </Link>
+</p>
+
         <button
           type="submit"
           className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
