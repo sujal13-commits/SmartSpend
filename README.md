@@ -32,6 +32,7 @@ A full-stack MERN expense tracker with authentication, category-wise spending vi
 
 ## Screenshots
 
+<img width="1917" height="857" alt="image" src="https://github.com/user-attachments/assets/b0ed0b0d-4fe6-4c91-aeca-0dc1ecbd1f16" />
 <img width="1892" height="841" alt="Screenshot 2026-08-05 034117" src="https://github.com/user-attachments/assets/a6f3f297-f8e0-4b2f-ae7c-c63bc65b3435" />
 <img width="1890" height="807" alt="image" src="https://github.com/user-attachments/assets/ba2db3a8-b355-4bdf-b4fc-1267fb52024b" />
 
