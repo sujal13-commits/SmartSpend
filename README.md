@@ -72,8 +72,8 @@ npm install
 
 Create a `.env` file in `backend/` with:
 ```
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_random_secret_string
+MONGO_URI=mongodb+srv://sujal:sujal123@cluster0.hs7zdxd.mongodb.net/smartspend?appName=Cluster0
+JWT_SECRET=x7Kp9mQ2vL4nR8tY3wZ6bC1dF5gH0jN
 PORT=5000
 RESEND_API_KEY=your_resend_api_key
 FRONTEND_URL=http://localhost:5173
