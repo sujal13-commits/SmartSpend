@@ -1,0 +1,124 @@
+# SmartSpend 💰
+
+A full-stack MERN expense tracker with authentication, category-wise spending visualization, and secure password recovery — built from scratch and deployed live.
+
+**🔗 Live App:** [smart-spend-peach.vercel.app](https://smart-spend-peach.vercel.app)
+**🔗 Backend API:** [smartspend-j02p.onrender.com](https://smartspend-j02p.onrender.com)
+
+> ⚠️ Backend is hosted on Render's free tier, which spins down after periods of inactivity. The first request may take 30-50 seconds to respond while the server wakes up.
+
+---
+
+## Features
+
+- **Authentication** — Secure signup/login with JWT tokens and bcrypt password hashing
+- **Expense Management** — Full CRUD: add, view, edit, and delete expenses
+- **Category-wise Visualization** — Interactive pie chart showing spending breakdown by category (Recharts)
+- **Password Recovery** — Forgot password flow with time-limited reset tokens sent via email (Resend API)
+- **Protected Routes** — Backend middleware ensures users can only access their own data
+- **Responsive UI** — Clean, mobile-friendly interface built with Tailwind CSS
+
+---
+
+## Tech Stack
+
+**Frontend:** React (Vite), Tailwind CSS, React Router, Axios, Recharts, React Hot Toast
+**Backend:** Node.js, Express.js, JWT, bcrypt.js
+**Database:** MongoDB Atlas (Mongoose ODM)
+**Email:** Resend API
+**Deployment:** Vercel (frontend) · Render (backend) · MongoDB Atlas (database)
+
+---
+
+## Screenshots
+
+*(Add screenshots here — dashboard, pie chart, login page)*
+
+---
+
+## Architecture
+
+```
+[React Frontend]  <--- HTTP requests (axios) --->  [Express Backend]  <--- Mongoose --->  [MongoDB Atlas]
+     (Vercel)                                          (Render)
+```
+
+- **Frontend** handles UI, routing, and state management, communicating with the backend via REST API calls
+- **Backend** validates JWT tokens on protected routes, applies business logic, and interacts with MongoDB
+- **Database** stores users and expenses, with every expense scoped to its owning user
+
+---
+
+## Getting Started (Run Locally)
+
+### Prerequisites
+- Node.js (LTS)
+- A MongoDB Atlas account (free tier)
+- A Resend account (free tier) for email functionality
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/sujal13-commits/SmartSpend.git
+cd SmartSpend
+```
+
+### 2. Backend Setup
+```bash
+cd backend
+npm install
+```
+
+Create a `.env` file in `backend/` with:
+```
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_random_secret_string
+PORT=5000
+RESEND_API_KEY=your_resend_api_key
+FRONTEND_URL=http://localhost:5173
+```
+
+Run the backend:
+```bash
+npm run dev
+```
+
+### 3. Frontend Setup
+```bash
+cd ../frontend
+npm install
+npm run dev
+```
+
+The app will be available at `http://localhost:5173`.
+
+---
+
+## API Endpoints
+
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|--------------|----------------|
+| POST | `/api/auth/signup` | Register a new user | No |
+| POST | `/api/auth/login` | Log in and receive JWT | No |
+| POST | `/api/auth/forgot-password` | Request password reset link | No |
+| PUT | `/api/auth/reset-password/:token` | Reset password using token | No |
+| GET | `/api/expenses` | Get all expenses for logged-in user | Yes |
+| POST | `/api/expenses` | Add a new expense | Yes |
+| PUT | `/api/expenses/:id` | Update an expense | Yes |
+| DELETE | `/api/expenses/:id` | Delete an expense | Yes |
+
+---
+
+## What I Learned Building This
+
+- Designing and securing a REST API with JWT-based authentication and middleware-protected routes
+- Structuring a MERN app with clean separation of concerns (models, controllers, routes, middleware)
+- Debugging real-world cloud deployment issues, including an IPv6/SMTP connectivity problem on Render that required switching from Gmail SMTP to a dedicated email API (Resend)
+- Deploying a full-stack app across multiple platforms (Vercel, Render, MongoDB Atlas) and managing environment variables and CORS across environments
+- Building data visualizations by aggregating and transforming API data on the frontend
+
+---
+
+## Author
+
+**Sujal Pagade**
+[LinkedIn](#) · [GitHub](https://github.com/sujal13-commits)
